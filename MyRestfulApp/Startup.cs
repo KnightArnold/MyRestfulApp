@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MyRestfulApp.DbContexts;
+using MyRestfulApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +28,14 @@ namespace MyRestfulApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IMyRestfulAppRepository, MyRestfulAppRepository>();
+
+            services.AddDbContext<MyRestfulAppContext>(options =>
+            {
+                options.UseSqlServer(
+                    @"Server=DESKTOP-CD3MSDA\MSSQLSERVER2019;Database=MyRestfulAppDB;Trusted_Connection=True;");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
