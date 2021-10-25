@@ -11,6 +11,9 @@ namespace MyRestfulApp.Profiles
         public UsersProfile()
         {
             CreateMap<Entities.User, Models.UserDto>();
+            CreateMap<Models.UserForCreationDto, Entities.User>();
+            CreateMap<Models.UserForUpdateDto,Entities.User>();
+            CreateMap<Entities.User, Models.UserForUpdateDto>();
         }        
     }
 }
