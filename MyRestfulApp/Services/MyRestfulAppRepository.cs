@@ -1,8 +1,11 @@
 ﻿using MyRestfulApp.DbContexts;
 using MyRestfulApp.Entities;
+using MyRestfulApp.ExternalModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MyRestfulApp.Services
@@ -11,9 +14,13 @@ namespace MyRestfulApp.Services
     {
         private readonly MyRestfulAppContext _context;
 
-        public MyRestfulAppRepository(MyRestfulAppContext context)
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public MyRestfulAppRepository(MyRestfulAppContext context,
+            IHttpClientFactory httpClientFactory)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
         }
 
         public void AddUser(User user)
@@ -80,6 +87,40 @@ namespace MyRestfulApp.Services
         public void UpdateUser(User user)
         {
             // no code in this implementation
+        }
+
+        public async Task<Country> GetCountryAsync(string countryId)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+            var response = await httpClient.GetAsync($"https://api.mercadolibre.com/classified_locations/countries/{countryId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonSerializer.Deserialize<Country>(
+                    await response.Content.ReadAsStringAsync(),
+                    new JsonSerializerOptions
+                    { 
+                        PropertyNameCaseInsensitive = true
+                    });
+            }
+
+            return null;
+        }
+
+        public async Task<IEnumerable<Countries>> GetCountriesAsync()
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+            var response = await httpClient.GetAsync($"https://api.mercadolibre.com/classified_locations/countries");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonSerializer.Deserialize<IEnumerable<Countries>>(
+                    await response.Content.ReadAsStringAsync(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+            }
+
+            return null;
         }
 
         public bool Save()

@@ -42,6 +42,8 @@ namespace MyRestfulApp
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            services.AddHttpClient();
+
             services.AddScoped<IMyRestfulAppRepository, MyRestfulAppRepository>();
 
             services.AddDbContext<MyRestfulAppContext>(options =>

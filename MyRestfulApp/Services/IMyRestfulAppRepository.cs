@@ -1,4 +1,5 @@
 ﻿using MyRestfulApp.Entities;
+using MyRestfulApp.ExternalModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace MyRestfulApp.Services
         void DeleteUser(User user);
         void UpdateUser(User user);
         bool UserExists(Guid userId);
+        Task<IEnumerable<Countries>> GetCountriesAsync();
+        Task<Country> GetCountryAsync(string countryId);
         bool Save();
     }
 }
