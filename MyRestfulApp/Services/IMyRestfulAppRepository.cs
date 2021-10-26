@@ -1,5 +1,6 @@
 ﻿using MyRestfulApp.Entities;
 using MyRestfulApp.ExternalModels;
+using MyRestfulApp.ExternalModels.SearchesModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace MyRestfulApp.Services
         bool UserExists(Guid userId);
         Task<IEnumerable<Countries>> GetCountriesAsync();
         Task<Country> GetCountryAsync(string countryId);
+        Task<Search> SearchTermQueryAsync(string termQuery);
         bool Save();
     }
 }

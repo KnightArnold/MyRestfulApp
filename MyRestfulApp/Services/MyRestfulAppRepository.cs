@@ -1,6 +1,7 @@
 ﻿using MyRestfulApp.DbContexts;
 using MyRestfulApp.Entities;
 using MyRestfulApp.ExternalModels;
+using MyRestfulApp.ExternalModels.SearchesModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,6 +114,23 @@ namespace MyRestfulApp.Services
             if (response.IsSuccessStatusCode)
             {
                 return JsonSerializer.Deserialize<IEnumerable<Countries>>(
+                    await response.Content.ReadAsStringAsync(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+            }
+
+            return null;
+        }
+
+        public async Task<Search> SearchTermQueryAsync(string termQuery)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+            var response = await httpClient.GetAsync($"https://api.mercadolibre.com/sites/MLA/search?q={termQuery}");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonSerializer.Deserialize<Search>(
                     await response.Content.ReadAsStringAsync(),
                     new JsonSerializerOptions
                     {
