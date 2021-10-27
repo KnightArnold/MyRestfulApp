@@ -1,6 +1,8 @@
 ﻿using MyRestfulApp.Entities;
 using MyRestfulApp.ExternalModels;
+using MyRestfulApp.ExternalModels.CurrenciesModel;
 using MyRestfulApp.ExternalModels.SearchesModel;
+using MyRestfulApp.ResourceParameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,9 @@ namespace MyRestfulApp.Services
         Task<IEnumerable<Countries>> GetCountriesAsync();
         Task<Country> GetCountryAsync(string countryId);
         Task<Search> SearchTermQueryAsync(string termQuery);
+        Task<IEnumerable<Currency>> GetCurrenciesAsync();
+        void GetCurrencies(CurrencyResourceParameters currencyResourceParameters);
+        Task<CurrencyConversion> GetCurrencyConversionAsync(CurrencyResourceParameters currencyResourceParameters);
         bool Save();
     }
 }

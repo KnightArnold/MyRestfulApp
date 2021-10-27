@@ -1,7 +1,9 @@
 ﻿using MyRestfulApp.DbContexts;
 using MyRestfulApp.Entities;
 using MyRestfulApp.ExternalModels;
+using MyRestfulApp.ExternalModels.CurrenciesModel;
 using MyRestfulApp.ExternalModels.SearchesModel;
+using MyRestfulApp.ResourceParameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,6 +133,62 @@ namespace MyRestfulApp.Services
             if (response.IsSuccessStatusCode)
             {
                 return JsonSerializer.Deserialize<Search>(
+                    await response.Content.ReadAsStringAsync(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+            }
+
+            return null;
+        }
+
+        public async Task<IEnumerable<Currency>> GetCurrenciesAsync()
+        {           
+            var httpClient = _httpClientFactory.CreateClient();
+            var response = await httpClient.GetAsync($"https://api.mercadolibre.com/currencies/");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonSerializer.Deserialize<IEnumerable<Currency>>(
+                    await response.Content.ReadAsStringAsync(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true,
+                        WriteIndented = true
+                    });
+            }
+
+            return null;
+        }
+
+        public async void GetCurrencies(CurrencyResourceParameters currencyResourceParameters)
+        {
+            if (currencyResourceParameters == null)
+            {
+                throw new ArgumentNullException(nameof(currencyResourceParameters));
+            }
+
+            if (string.IsNullOrWhiteSpace(currencyResourceParameters.from)
+               && string.IsNullOrWhiteSpace(currencyResourceParameters.todolar))
+            {
+                await GetCurrenciesAsync();
+            }
+
+            await GetCurrencyConversionAsync(currencyResourceParameters);
+        }
+
+        public async Task<CurrencyConversion> GetCurrencyConversionAsync(CurrencyResourceParameters currencyResourceParameters)
+        {
+            if (currencyResourceParameters == null)
+            {
+                throw new ArgumentNullException(nameof(currencyResourceParameters));
+            }
+
+            var httpClient = _httpClientFactory.CreateClient();
+            var response = await httpClient.GetAsync($"https://api.mercadolibre.com/currency_conversions/search?from={currencyResourceParameters.from}&to={currencyResourceParameters.todolar}");
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonSerializer.Deserialize<CurrencyConversion>(
                     await response.Content.ReadAsStringAsync(),
                     new JsonSerializerOptions
                     {
