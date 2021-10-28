@@ -1,0 +1,340 @@
+{
+	"id": "2b9328ae-f585-4ad4-991b-13852dfddd4e",
+	"name": "My RestfulApp",
+	"timestamp": "2021-10-28T17:47:59.474Z",
+	"collection_id": "1108909-337b84ad-5101-4380-8cc5-1fba96dd6a45",
+	"folder_id": 0,
+	"environment_id": "98c20f81-9888-41d8-8495-0c686b2ff90e",
+	"totalPass": 12,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "633c1278-dce5-4de6-b146-f1b768db25d0",
+			"name": "/MyRestfulApp/paises",
+			"url": "http://localhost:8080/MyRestfulApp/paises",
+			"time": 254,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				254
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "2c436517-01b9-4081-b734-2ff560f25e36",
+			"name": "Get Pais",
+			"url": "http://localhost:8080/MyRestfulApp/paises/AR",
+			"time": 273,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				273
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "124e7242-009c-4a42-853d-2b0f12a2a3b7",
+			"name": "Get Usuario",
+			"url": "http://localhost:8080/MyRestfulApp/usuarios/d94a64c2-2e8f-4162-9976-0ffe03d30767",
+			"time": 239,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"User returned must match requested user": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User returned must match requested user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				239
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"User returned must match requested user": true
+				}
+			]
+		},
+		{
+			"id": "c08384c2-175b-4da5-aca6-02132b403159",
+			"name": "/MyRestfulApp/usuarios/:userId",
+			"url": "http://localhost:8080/MyRestfulApp/usuarios/102b566b-ba1f-404c-b2df-e2cde39ade09",
+			"time": 137,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				137
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "076e83a6-304c-4a81-9afd-457311379394",
+			"name": "/MyRestfulApp/usuarios/:userId",
+			"url": "http://localhost:8080/MyRestfulApp/usuarios/102b566b-ba1f-404c-b2df-e2cde39ade09",
+			"time": 90,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Successful PATCH request": true
+			},
+			"testPassFailCounts": {
+				"Successful PATCH request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				90
+			],
+			"allTests": [
+				{
+					"Successful PATCH request": true
+				}
+			]
+		},
+		{
+			"id": "ae309973-7024-497a-9c82-9e4cd53dc144",
+			"name": "/MyRestfulApp/usuarios/:userId",
+			"url": "http://localhost:8080/MyRestfulApp/usuarios/3af21ec9-ad99-4d73-8e71-6c90f82a8a1d",
+			"time": 21,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Previous DELETE request": true
+			},
+			"testPassFailCounts": {
+				"Previous DELETE request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Previous DELETE request": true
+				}
+			]
+		},
+		{
+			"id": "cb73125f-e64e-4c03-b6c6-68bec2289723",
+			"name": "/MyRestfulApp/usuarios",
+			"url": "http://localhost:8080/MyRestfulApp/usuarios",
+			"time": 32,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time must be below 300ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time must be below 300ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				32
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time must be below 300ms": true
+				}
+			]
+		},
+		{
+			"id": "90de75ed-f1a1-4f01-92a0-f9baa0500f30",
+			"name": "/MyRestfulApp/usuarios",
+			"url": "http://localhost:8080/MyRestfulApp/usuarios",
+			"time": 62,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				62
+			],
+			"allTests": [
+				{
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "a761f5ab-90e8-46ac-b68a-523a5a43b48c",
+			"name": "/MyRestfulApp/monedas",
+			"url": "http://localhost:8080/MyRestfulApp/monedas?from=ARS&todolar=USD",
+			"time": 3260,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3260
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "bf99113b-cdcc-451f-a896-2531109d8a32",
+			"name": "termino",
+			"url": "http://localhost:8080/MyRestfulApp/busqueda/termino",
+			"time": 752,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				752
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 5120,
+	"collection": {
+		"requests": [
+			{
+				"id": "633c1278-dce5-4de6-b146-f1b768db25d0",
+				"method": "GET"
+			},
+			{
+				"id": "2c436517-01b9-4081-b734-2ff560f25e36",
+				"method": "GET"
+			},
+			{
+				"id": "124e7242-009c-4a42-853d-2b0f12a2a3b7",
+				"method": "GET"
+			},
+			{
+				"id": "c08384c2-175b-4da5-aca6-02132b403159",
+				"method": "PUT"
+			},
+			{
+				"id": "076e83a6-304c-4a81-9afd-457311379394",
+				"method": "PATCH"
+			},
+			{
+				"id": "ae309973-7024-497a-9c82-9e4cd53dc144",
+				"method": "DELETE"
+			},
+			{
+				"id": "cb73125f-e64e-4c03-b6c6-68bec2289723",
+				"method": "GET"
+			},
+			{
+				"id": "90de75ed-f1a1-4f01-92a0-f9baa0500f30",
+				"method": "POST"
+			},
+			{
+				"id": "a761f5ab-90e8-46ac-b68a-523a5a43b48c",
+				"method": "GET"
+			},
+			{
+				"id": "bf99113b-cdcc-451f-a896-2531109d8a32",
+				"method": "GET"
+			}
+		]
+	}
+}

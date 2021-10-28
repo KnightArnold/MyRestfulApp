@@ -1,0 +1,825 @@
+{
+	"info": {
+		"_postman_id": "337b84ad-5101-4380-8cc5-1fba96dd6a45",
+		"name": "My RestfulApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "My Restful App",
+			"item": [
+				{
+					"name": "paises",
+					"item": [
+						{
+							"name": "/MyRestfulApp/paises",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/MyRestfulApp/paises",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"MyRestfulApp",
+										"paises"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/paises",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"paises"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Get Pais",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/MyRestfulApp/paises/:pais",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"MyRestfulApp",
+										"paises",
+										":pais"
+									],
+									"variable": [
+										{
+											"key": "pais",
+											"value": "AR"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/paises/:countryId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"paises",
+												":countryId"
+											],
+											"variable": [
+												{
+													"key": "countryId",
+													"value": "veniam cupidatat commodo",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "usuarios",
+					"item": [
+						{
+							"name": "{user Id}",
+							"item": [
+								{
+									"name": "Get Usuario",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"User returned must match requested user\", function () {\r",
+													"    var jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.id).to.equal(\"d94a64c2-2e8f-4162-9976-0ffe03d30767\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"usuarios",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "d94a64c2-2e8f-4162-9976-0ffe03d30767",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"MyRestfulApp",
+														"usuarios",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "urn:uuid:b49fe6f2-90cf-b447-0cff-d3908ffae9b0",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/MyRestfulApp/usuarios/:userId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(204);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"apellido\": \"penita\",\n    \"email\": \"fpenita@gmail.com\",\n    \"nombre\": \"felipito\",\n    \"password\": \"fpenita2021\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"usuarios",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "102b566b-ba1f-404c-b2df-e2cde39ade09",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"apellido\": \"ut deserunt sunt ex\",\n    \"email\": \"exercitation sed dolore ut\",\n    \"nombre\": \"fugiat\",\n    \"password\": \"mollit dolor\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"MyRestfulApp",
+														"usuarios",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "urn:uuid:b49fe6f2-90cf-b447-0cff-d3908ffae9b0",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/MyRestfulApp/usuarios/:userId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Successful PATCH request\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([201,202,204]);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n   {\n      \"op\": \"replace\",\n      \"path\": \"/nombre\",\n      \"value\": \"Federico\"\n    }\n    ,{\n        \"op\": \"replace\",\n      \"path\": \"/apellido\",\n      \"value\": \"Girotti\"\n    }\n    ,{\n      \"op\": \"replace\",\n      \"path\": \"/password\",\n      \"value\": \"newpass2021\"\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"usuarios",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "102b566b-ba1f-404c-b2df-e2cde39ade09",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "[\n    {\n        \"operationType\": 5,\n        \"path\": \"officia minim in aliqua\",\n        \"op\": \"ex laboris minim sunt\",\n        \"from\": \"ea ut\",\n        \"value\": {}\n    },\n    {\n        \"operationType\": 4,\n        \"path\": \"et\",\n        \"op\": \"enim nostrud ex deserunt\",\n        \"from\": \"eu eiusmod consectetur aliqua\",\n        \"value\": {}\n    }\n]",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"MyRestfulApp",
+														"usuarios",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "urn:uuid:b49fe6f2-90cf-b447-0cff-d3908ffae9b0",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "/MyRestfulApp/usuarios/:userId",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Previous DELETE request\", function () {\r",
+													"    pm.expect(pm.response.code).to.be.oneOf([200,404]);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"usuarios",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "3af21ec9-ad99-4d73-8e71-6c90f82a8a1d",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/MyRestfulApp/usuarios/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"MyRestfulApp",
+														"usuarios",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "urn:uuid:b49fe6f2-90cf-b447-0cff-d3908ffae9b0",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/MyRestfulApp/usuarios",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"var responseTimeTest = () => pm.test(\"Response time must be below 300ms\", function ()\r",
+											"    { pm.expect(pm.response.responseTime).to.be.below(300); });\r",
+											"\r",
+											"pm.globals.set(\"responseTimeTest\", responseTimeTest.toString());\r",
+											"\r",
+											"eval(pm.globals.get(\"responseTimeTest\"))();"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/MyRestfulApp/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"MyRestfulApp",
+										"usuarios"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"usuarios"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/MyRestfulApp/usuarios",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {\r",
+											"    pm.expect(pm.response.code).to.be.oneOf([201,202]);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"apellido\": \"testing\",\n    \"email\": \"exert test\",\n    \"nombre\": \"fugiat\",\n    \"password\": \"mollit dolor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/MyRestfulApp/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"MyRestfulApp",
+										"usuarios"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"apellido\": \"ut deserunt sunt ex\",\n    \"email\": \"exercitation sed dolore ut\",\n    \"nombre\": \"fugiat\",\n    \"password\": \"mollit dolor\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/MyRestfulApp/usuarios",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"MyRestfulApp",
+												"usuarios"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"urn:uuid:a185c280-b64b-f555-32fa-af59dfb769f8\",\n \"nombre\": \"qui consectetur amet\",\n \"apellido\": \"proi\",\n \"email\": \"consectetur\",\n \"password\": \"tempor ad et\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/MyRestfulApp/monedas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/MyRestfulApp/monedas?from=ARS&todolar=USD",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"MyRestfulApp",
+								"monedas"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "ARS"
+								},
+								{
+									"key": "todolar",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/MyRestfulApp/monedas?from=veniam cupidatat commodo&todolar=veniam cupidatat commodo",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"MyRestfulApp",
+										"monedas"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "veniam cupidatat commodo"
+										},
+										{
+											"key": "todolar",
+											"value": "veniam cupidatat commodo"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "termino",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/MyRestfulApp/busqueda/termino",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"MyRestfulApp",
+								"busqueda",
+								"termino"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/MyRestfulApp/busqueda/:termQuery",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"MyRestfulApp",
+										"busqueda",
+										":termQuery"
+									],
+									"variable": [
+										{
+											"key": "termQuery",
+											"value": "veniam cupidatat commodo",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
