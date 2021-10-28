@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MyRestfulApp.Controllers
 {
     [ApiController]
-    [Route("api/busqueda")]
+    [Route("MyRestfulApp/busqueda")]
     public class SearchesController : ControllerBase
     {
         private readonly IMyRestfulAppRepository _myRestfulAppRepository;
@@ -22,10 +22,10 @@ namespace MyRestfulApp.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet("{termQuery}", Name = "termino")]
-        public async Task<IActionResult> SearchTermQuery(string termQuery)
+        [HttpGet("{termino}", Name = "termino")]
+        public async Task<IActionResult> SearchTermQuery(string termino)
         {
-            var termQueryFromRepo = await _myRestfulAppRepository.SearchTermQueryAsync(termQuery);
+            var termQueryFromRepo = await _myRestfulAppRepository.SearchTermQueryAsync(termino);
 
             if (termQueryFromRepo == null)
             {

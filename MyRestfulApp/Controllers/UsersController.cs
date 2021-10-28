@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace MyRestfulApp.Controllers
 {
     [ApiController]
-    [Route("api/usuarios")]
+    [Route("MyRestfulApp/usuarios")]
     public class UsersController : ControllerBase
     {
         private readonly IMyRestfulAppRepository _myRestfulAppRepository;
@@ -24,8 +24,7 @@ namespace MyRestfulApp.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet]
-        [HttpHead]
+        [HttpGet]        
         public IActionResult GetUsers()
         {
             var usersFromRepo = _myRestfulAppRepository.GetUsers();

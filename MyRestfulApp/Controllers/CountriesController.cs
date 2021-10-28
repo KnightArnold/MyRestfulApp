@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MyRestfulApp.Controllers
 {
     [ApiController]
-    [Route("api/paises")]
+    [Route("MyRestfulApp/paises")]
     public class CountriesController : ControllerBase
     {
         private readonly IMyRestfulAppRepository _myRestfulAppRepository;
@@ -22,8 +22,7 @@ namespace MyRestfulApp.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet]
-        [HttpHead]
+        [HttpGet]        
         public async Task<IActionResult> GetCountries()
         {
             var countriesFromRepo = await _myRestfulAppRepository.GetCountriesAsync();

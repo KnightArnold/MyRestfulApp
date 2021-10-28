@@ -28,7 +28,7 @@ namespace MyRestfulApp
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {            
             services.AddControllers(setupAction =>
             {
                 setupAction.ReturnHttpNotAcceptable = true;
@@ -40,6 +40,27 @@ namespace MyRestfulApp
             })
             .AddXmlDataContractSerializerFormatters();
 
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = actionContext =>
+                {
+                    var actionExecutingContext =
+                        actionContext as Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext;
+
+                    // if there are modelstate errors & all keys were correctly
+                    // found/parsed we're dealing with validation errors
+                    if (actionContext.ModelState.ErrorCount > 0
+                        && actionExecutingContext?.ActionArguments.Count == actionContext.ActionDescriptor.Parameters.Count)
+                    {
+                        return new UnprocessableEntityObjectResult(actionContext.ModelState);
+                    }
+
+                    // if one of the keys wasn't correctly found / couldn't be parsed
+                    // we're dealing with null/unparseable input
+                    return new BadRequestObjectResult(actionContext.ModelState);
+                };
+            });
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddHttpClient();
@@ -50,6 +71,17 @@ namespace MyRestfulApp
             {
                 options.UseSqlServer(
                     @"Server=DESKTOP-CD3MSDA\MSSQLSERVER2019;Database=MyRestfulAppDB;Trusted_Connection=True;");
+            });
+
+            services.AddSwaggerGen(setupAction =>
+            {
+                setupAction.SwaggerDoc(
+                    "MyRestfulAppSpecification",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "My RestfulApp",
+                        Version = "1"
+                    });
             });
         }
 
@@ -74,6 +106,16 @@ namespace MyRestfulApp
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(setupAction =>
+            {
+                setupAction.SwaggerEndpoint(
+                    "/swagger/MyRestfulAppSpecification/swagger.json",
+                    "My RestfulApp");
+                setupAction.RoutePrefix = "";
+            });
 
             app.UseEndpoints(endpoints =>
             {

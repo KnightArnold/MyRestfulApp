@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace MyRestfulApp.Controllers
 {
     [ApiController]
-    [Route("api/monedas")]
+    [Route("MyRestfulApp/monedas")]
     public class CurrenciesController : ControllerBase
     {
         private readonly IMyRestfulAppRepository _myRestfulAppRepository;
