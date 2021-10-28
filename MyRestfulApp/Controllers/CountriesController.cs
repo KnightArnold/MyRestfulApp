@@ -36,15 +36,15 @@ namespace MyRestfulApp.Controllers
         }
 
 
-        [HttpGet("{countryId}", Name = "GetPais")]
-        public async Task<IActionResult> GetCountry(string countryId)
+        [HttpGet("{pais}", Name = "GetPais")]
+        public async Task<IActionResult> GetCountry(string pais)
         {
-            if (countryId == "BR" || countryId == "CO")
+            if (pais == "BR" || pais == "CO")
             {
                 return Unauthorized();
             }
 
-            var countryFromRepo = await _myRestfulAppRepository.GetCountryAsync(countryId);
+            var countryFromRepo = await _myRestfulAppRepository.GetCountryAsync(pais);
 
             if (countryFromRepo == null)
             {                
